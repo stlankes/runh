@@ -7,6 +7,8 @@ mod container;
 mod create;
 mod delete;
 //mod exec;
+mod consts;
+mod init;
 mod list;
 mod logging;
 mod pull;
