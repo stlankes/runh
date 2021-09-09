@@ -16,6 +16,7 @@ mod list;
 mod logging;
 mod mounts;
 mod namespaces;
+mod network;
 mod paths;
 mod pull;
 mod rootfs;
@@ -57,7 +58,7 @@ fn parse_matches(app: App) {
 			sub_m.value_of("BUNDLE"),
 			sub_m.value_of("PID_FILE"),
 			sub_m.value_of("CONSOLE_SOCKET"),
-		), // push was used
+		),
 		("delete", Some(sub_m)) => delete_container(sub_m.value_of("CONTAINER_ID")),
 		("start", Some(sub_m)) => start_container(sub_m.value_of("CONTAINER_ID")),
 		("list", Some(_)) => list_containers(),
