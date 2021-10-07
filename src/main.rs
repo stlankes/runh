@@ -50,6 +50,7 @@ fn parse_matches(app: App) {
 		matches.value_of("LOG_LEVEL"),
 	);
 	info!("Welcome to runh {}", crate_version!());
+	debug!("Runh was started with command {}", env::args().collect::<Vec<String>>().join(" "));
 
 	match matches.subcommand() {
 		("spec", Some(sub_m)) => create_spec(sub_m.value_of("BUNDLE")),
@@ -101,7 +102,7 @@ pub fn main() {
 			Arg::with_name("LOG_LEVEL")
 				.long("log-level")
 				.short("l")
-				.default_value("info")
+				.default_value("debug")
 				.possible_values(&["trace", "debug", "info", "warn", "error", "off"])
 				.help("The logging level of the application."),
 		)
