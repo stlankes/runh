@@ -88,10 +88,7 @@ pub fn get_qemu_args(
 		exec_args.push("tap,id=net0,ifname=tap100,script=no,downscript=no".to_string());
 		exec_args.push("-device".to_string());
 		exec_args.push(if micro_vm {
-			format!(
-				"virtio-net-device,netdev=net0,mac={}",
-				network_config.mac
-			)
+			format!("virtio-net-device,netdev=net0,mac={}", network_config.mac)
 		} else {
 			format!(
 				"virtio-net-pci,netdev=net0,disable-legacy=on,mac={}",
@@ -114,7 +111,11 @@ pub fn get_qemu_args(
 	}
 
 	if let Some(application_args) = app_args.get(1..) {
-		args_string = format!("-freq 1197 {} -- {}", args_string, application_args.join(" "));
+		args_string = format!(
+			"-freq 1197 {} -- {}",
+			args_string,
+			application_args.join(" ")
+		);
 	}
 	exec_args.push(args_string);
 
