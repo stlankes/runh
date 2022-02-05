@@ -42,7 +42,6 @@ jobs:
          cargo build
     - name: Pull container image
       run: |
-         mkdir -p data
          mkdir -p data/rootfs
          sudo target/debug/runh -l debug pull -b data/rootfs/ registry.git.rwth-aachen.de/acs/public/hermitcore/rusty-hermit/demo
     - name: Create container specification
