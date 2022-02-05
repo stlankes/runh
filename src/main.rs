@@ -166,7 +166,7 @@ pub fn main() {
 			Arg::with_name("SYSTEMD_CGROUP")
 				.long("systemd-cgroup")
 				.takes_value(false)
-				.help("Currently unimplemented!")
+				.help("Currently unimplemented!"),
 		)
 		.subcommand(
 			SubCommand::with_name("spec")
@@ -182,7 +182,7 @@ pub fn main() {
 				),
 		)
 		.subcommand(
-				SubCommand::with_name("state")
+			SubCommand::with_name("state")
 				.about("Query container state")
 				.version(crate_version!())
 				.arg(
@@ -190,7 +190,7 @@ pub fn main() {
 						.takes_value(true)
 						.required(true)
 						.help("Id of the container"),
-				)
+				),
 		)
 		.subcommand(
 			SubCommand::with_name("create")
@@ -221,7 +221,7 @@ pub fn main() {
 					Arg::with_name("CONSOLE_SOCKET")
 						.long("console-socket")
 						.takes_value(true)
-						.help("Path to an AF_UNIX socket for console IO")
+						.help("Path to an AF_UNIX socket for console IO"),
 				),
 		)
 		.subcommand(
@@ -269,29 +269,29 @@ pub fn main() {
 		)
 		.subcommand(
 			SubCommand::with_name("kill")
-			.about("Send a signal to a running or created container")
-			.version(crate_version!())
-			.arg(
-				Arg::with_name("CONTAINER_ID")
-					.takes_value(true)
-					.required(true)
-					.help("Id of the container"),
-			)
-			.arg(
-				Arg::with_name("SIGNAL")
-					.takes_value(true)
-					.required(false)
-					.default_value("SIGTERM")
-					.help("Signal to be sent to the init process"),
-			)
-			.arg(
-				Arg::with_name("ALL")
-					.long("all")
-					.short("a")
-					.takes_value(false)
-					.required(false)
-					.help("Send the signal to all container processes"),
-			),
+				.about("Send a signal to a running or created container")
+				.version(crate_version!())
+				.arg(
+					Arg::with_name("CONTAINER_ID")
+						.takes_value(true)
+						.required(true)
+						.help("Id of the container"),
+				)
+				.arg(
+					Arg::with_name("SIGNAL")
+						.takes_value(true)
+						.required(false)
+						.default_value("SIGTERM")
+						.help("Signal to be sent to the init process"),
+				)
+				.arg(
+					Arg::with_name("ALL")
+						.long("all")
+						.short("a")
+						.takes_value(false)
+						.required(false)
+						.help("Send the signal to all container processes"),
+				),
 		)
 		.subcommand(
 			SubCommand::with_name("list")
